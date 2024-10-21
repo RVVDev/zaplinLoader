@@ -16,11 +16,11 @@ overlay.style.cssText = `
 
 const svgImage = document.createElement('img');
 svgImage.id = 'svgImage';
-svgImage.src = 'https://https://firebasestorage.googleapis.com/v0/b/mount-b912c.appspot.com/o/Frame%201.png?alt=media&token=c3d745bd-b840-4ca6-b809-da24228d5e27';  // Remplace par ton asset orange
+svgImage.src = 'https://firebasestorage.googleapis.com/v0/b/mount-b912c.appspot.com/o/Frame%201.png?alt=media&token=c3d745bd-b840-4ca6-b809-da24228d5e27';  // Remplace par ton asset orange
 svgImage.style.cssText = `
-    max-width: 100%;
-    max-height: 100%;
-    display: none;
+    max-width: 150px;
+    max-height: 150px;
+    display: block;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -29,21 +29,18 @@ svgImage.style.cssText = `
 
 // Append the elements to the body
 document.body.appendChild(overlay);
-document.body.appendChild(svgImage);
+overlay.appendChild(svgImage);
 
-// Function to hide the overlay and display the SVG
+// Function to hide the overlay
 function hideOverlay() {
     overlay.style.display = 'none';
-    svgImage.style.display = 'block';
 }
 
-// Add an event listener to hide the overlay when all external JS files are loaded
+// Ajoute un délai de 3 secondes avant de cacher l'overlay
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(hideOverlay, 100);
+    setTimeout(hideOverlay, 3000); // 3000 millisecondes = 3 secondes
 });
 
-// Fallback: If all external resources are loaded and the DOMContentLoaded event doesn't fire,
-// we'll still hide the overlay when the window's load event is triggered.
+// Fallback : on cache toujours l'overlay si l'événement 'load' est déclenché
 window.addEventListener('load', hideOverlay);
-
 
