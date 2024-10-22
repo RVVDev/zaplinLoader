@@ -38,7 +38,7 @@ function hideOverlay() {
 
 // Ajoute un délai de 3 secondes avant de cacher l'overlay
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(hideOverlay, 3000); // 3000 millisecondes = 3 secondes
+    setTimeout(hideOverlay, 6000); // 3000 millisecondes = 3 secondes
 });
 
 // Fallback : on cache toujours l'overlay si l'événement 'load' est déclenché
